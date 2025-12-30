@@ -8,10 +8,10 @@
   }
 
   html {
-    font-size: calc(100vw / 22.5);
+    font-size: calc(100vw / 23.4375);
 
     @media (min-width: 1024px) {
-      font-size: calc(100vw / 120);
+      font-size: calc(100vw / 90);
     }
 
     *:focus {

@@ -10,7 +10,19 @@ export const herouiTheme = heroui({
     light: {
       colors: {
         background: '#ffffff',
-        foreground: '#000000',
+        foreground: '#121212',
+        success: {
+          DEFAULT: '#32936F',
+        },
+        danger: {
+          DEFAULT: '#F55F56',
+        },
+        content1: {
+          100: '#F5F5F7',
+          200: '#D2D2D7',
+          300: '#808080',
+          400: '#424245',
+        },
       },
     },
   },

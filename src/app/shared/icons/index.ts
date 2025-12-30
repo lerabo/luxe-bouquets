@@ -1,1 +1,5 @@
-export { default as IconLogo } from './logo.svg'
+export { default as IconFacebook } from './Facebook.svg'
+export { default as IconInstagram } from './Instagram.svg'
+export { default as IconPinterest } from './Pinterest.svg'
+export { default as IconTelegram } from './Telegram.svg'
+export { default as IconTwitter } from './Twitter.svg'

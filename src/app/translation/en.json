@@ -1,5 +1,9 @@
 {
   "Main": {
-    "home_title": "Home"
+    "home_title": "Home",
+    "cart": "Cart",
+    "login": "Sign in",
+    "shop": "Shop",
+    "contact": "Contact"
   }
 }

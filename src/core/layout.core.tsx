@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast'
 
 import '@/core/style/globals.css'
 
-import { fontPrimary, fontSecondary } from '@/core/config'
+import { primaryFont } from '@/core/config'
 import { ApolloClientProvider } from '@/core/lib/apollo'
 import { HeroUIProvider } from '@/core/lib/heroui'
 import { ProgressBarProvider } from '@/core/lib/progress-bar'
@@ -24,14 +24,14 @@ const LayoutCore: FC<Readonly<ILayoutCoreProps>> = async (props) => {
   return (
     <NextIntlClientProvider>
       <html lang={locale} suppressHydrationWarning>
-      <body className={`${fontPrimary.className} ${fontSecondary.variable} scroll-smooth`}>
-      <HeroUIProvider locale={locale}>
-        <ApolloClientProvider>
-          <ProgressBarProvider>{children}</ProgressBarProvider>
-        </ApolloClientProvider>
-      </HeroUIProvider>
-      <Toaster position='bottom-right' />
-      </body>
+        <body className={`${primaryFont.className} scroll-smooth`}>
+          <HeroUIProvider locale={locale}>
+            <ApolloClientProvider>
+              <ProgressBarProvider>{children}</ProgressBarProvider>
+            </ApolloClientProvider>
+          </HeroUIProvider>
+          <Toaster position='bottom-right' />
+        </body>
       </html>
     </NextIntlClientProvider>
   )
@@ -57,7 +57,7 @@ export const generateMetadata = (): Metadata => {
       },
       description: 'Luxe Bouquets',
       siteName: 'Luxe Bouquets',
-      images: '/web-app-manifest-512x512.png',
+      images: '/icon.png',
       type: 'website',
     },
   }
