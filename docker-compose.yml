@@ -1,0 +1,22 @@
+name: tea
+services:
+  next-app:
+    container_name: tea
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # Set environment variables based on the .env file
+    env_file:
+      - .env
+    volumes:
+      - ./src:/usr/src/app/src
+    mem_limit: 2000m
+    restart: always
+    ports:
+      - '3000:3000'
+    networks:
+      - my_network
+networks:
+  my_network:
+    external: true
