@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 
-import { HeaderComponent } from '@/app/module/layout/elements'
+import { FooterComponent, HeaderComponent } from '@/app/module/layout/elements'
 
 // interface
 interface ILayoutComponentProps {
@@ -16,7 +16,9 @@ const LayoutComponent: FC<Readonly<ILayoutComponentProps>> = (props) => {
     <>
       <HeaderComponent />
 
-      <main>{children}</main>
+      <main className={'border-x'}>{children}</main>
+
+      <FooterComponent />
     </>
   )
 }

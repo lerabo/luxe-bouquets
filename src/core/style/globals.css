@@ -25,7 +25,8 @@
     width: 100%;
     background-color: hsl(var(--heroui-background));
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
+    line-height: 1.2;
     font-style: normal;
     color: var(--font-color-primary);
     -webkit-font-smoothing: antialiased;

@@ -10,7 +10,9 @@ import {
 import { Link } from '@/core/lib/locale/i18n'
 
 //interface
-interface ISocialsProps {}
+interface ISocialsProps {
+  className?: string
+}
 
 const icons = [
   { key: 'instagram', href: 'https://instagram.com', icon: IconInstagram },
@@ -21,10 +23,10 @@ const icons = [
 ]
 
 //component
-const SocialsComponent: FC<Readonly<ISocialsProps>> = () => {
+const SocialsComponent: FC<Readonly<ISocialsProps>> = ({ className }) => {
   //return
   return (
-    <div className={'flex justify-between border-x border-b p-6'}>
+    <div className={className}>
       {icons?.map(({ key, href, icon: Icon }) => (
         <Link href={href} key={key} className={'cursor-pointer'}>
           <Icon className={'w- h-6'} />

@@ -25,7 +25,7 @@ const HeaderComponent: FC = () => {
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
       classNames={{
-        base: 'border-y',
+        base: 'border-y laptop:border',
         wrapper: 'p-0 max-w-none gap-0',
         toggleIcon: 'after:h-0.5 before:h-0.5 group-data-[open=true]:before:translate-y-0.5',
         menu: 'p-0 border-t gap-0',
@@ -68,7 +68,10 @@ const HeaderComponent: FC = () => {
           <p className={'text-medium font-semibold'}>{t('login')}</p>
         </CustomButtonComponent>
 
-        <CustomButtonComponent variant={'default'} className={'laptop:w-full h-14 w-14 border-x'}>
+        <CustomButtonComponent
+          variant={'default'}
+          className={'laptop:w-full laptop:border-l max-laptop:border-x h-14 w-14'}
+        >
           <ShoppingBagIcon className={'laptop:hidden h-6 w-6'} />
           <p className={'max-laptop:hidden text-medium font-semibold'}>{t('cart')}</p>
         </CustomButtonComponent>
@@ -90,7 +93,7 @@ const HeaderComponent: FC = () => {
           ))}
         </ul>
 
-        <SocialsComponent />
+        <SocialsComponent className={'flex justify-between border-x border-b p-6'} />
       </NavbarMenu>
     </Navbar>
   )

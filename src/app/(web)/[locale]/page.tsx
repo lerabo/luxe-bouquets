@@ -23,7 +23,7 @@ export async function getProducts(): Promise<IProduct[]> {
 const Page: NextPage = async () => {
   const data = await getProducts()
 
-  console.log(data[0]?.fields)
+  // console.log(data[0]?.fields)
   // return
   return <HomeModule />
 }
