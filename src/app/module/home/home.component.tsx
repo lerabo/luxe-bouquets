@@ -1,15 +1,18 @@
-import { useTranslations } from 'next-intl'
+import { FC, Fragment } from 'react'
 
-import { FC } from 'react'
+import { BannerComponent } from '@/app/module/home/elements'
 
 //interface
 interface IHomeProps {}
 
 //component
 const HomeComponent: FC<Readonly<IHomeProps>> = () => {
-  const t = useTranslations('Main')
   //return
-  return <div>{t('home_title')}</div>
+  return (
+    <Fragment>
+      <BannerComponent />
+    </Fragment>
+  )
 }
 
 export default HomeComponent

@@ -9,6 +9,7 @@ import { FC, useState } from 'react'
 
 import { SocialsComponent } from '@/app/module/layout/elements/header/elements'
 import { CustomButtonComponent } from '@/app/shared/component/ui/button'
+import { HoveredTextComponent } from '@/app/shared/component/ui/hover-text'
 import { Link } from '@/core/lib/locale/i18n'
 
 const menuItems = ['Sign In', 'Shop', 'Service', 'Contact', 'About us']
@@ -25,7 +26,7 @@ const HeaderComponent: FC = () => {
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
       classNames={{
-        base: 'border-y laptop:border',
+        base: 'border-y laptop:border sticky top-0',
         wrapper: 'p-0 max-w-none gap-0',
         toggleIcon: 'after:h-0.5 before:h-0.5 group-data-[open=true]:before:translate-y-0.5',
         menu: 'p-0 border-t gap-0',
@@ -44,28 +45,43 @@ const HeaderComponent: FC = () => {
         className={'laptop:grid-cols-[1fr_1fr_2fr] laptop:grid hidden'}
       >
         <CustomButtonComponent
+          as={Link}
+          href={'/'}
           variant={'default'}
           className={'max-laptop:hidden laptop:w-full h-14 w-14 border-r'}
         >
-          <p className={'text-medium font-semibold'}>{t('shop')}</p>
+          <HoveredTextComponent className={'text-medium font-medium'}>
+            {t('shop')}
+          </HoveredTextComponent>
         </CustomButtonComponent>
 
-        <CustomButtonComponent variant={'default'} className={'laptop:w-full h-14 w-14 border-r'}>
+        <CustomButtonComponent
+          as={Link}
+          href={'/'}
+          variant={'default'}
+          className={'laptop:w-full h-14 w-14 border-r'}
+        >
           <ShoppingBagIcon className={'laptop:hidden h-6 w-6'} />
-          <p className={'max-laptop:hidden text-medium font-semibold'}>{t('contact')}</p>
+          <HoveredTextComponent className={'max-laptop:hidden text-medium font-medium'}>
+            {t('contact')}
+          </HoveredTextComponent>
         </CustomButtonComponent>
 
         <span />
       </NavbarContent>
 
-      <NavbarContent justify='end' className={'laptop:grid-cols-[2fr_1fr_1fr] grid'}>
+      <NavbarContent justify='end' className={'laptop:grid-cols-[2fr_1fr_1fr] grid gap-0'}>
         <span className={'max-laptop:hidden laptop:flex'} />
 
         <CustomButtonComponent
+          as={Link}
+          href={'/'}
           variant={'default'}
           className={'max-laptop:hidden laptop:w-full h-14 w-14 border-l'}
         >
-          <p className={'text-medium font-semibold'}>{t('login')}</p>
+          <HoveredTextComponent className={'text-medium font-medium'}>
+            {t('login')}
+          </HoveredTextComponent>
         </CustomButtonComponent>
 
         <CustomButtonComponent
@@ -73,7 +89,9 @@ const HeaderComponent: FC = () => {
           className={'laptop:w-full laptop:border-l max-laptop:border-x h-14 w-14'}
         >
           <ShoppingBagIcon className={'laptop:hidden h-6 w-6'} />
-          <p className={'max-laptop:hidden text-medium font-semibold'}>{t('cart')}</p>
+          <HoveredTextComponent className={'max-laptop:hidden text-medium font-medium'}>
+            {t('cart')}
+          </HoveredTextComponent>
         </CustomButtonComponent>
       </NavbarContent>
       <NavbarMenu>

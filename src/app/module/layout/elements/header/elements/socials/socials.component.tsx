@@ -1,3 +1,7 @@
+'use client'
+
+import { motion } from 'framer-motion'
+
 import { FC } from 'react'
 
 import {
@@ -28,9 +32,17 @@ const SocialsComponent: FC<Readonly<ISocialsProps>> = ({ className }) => {
   return (
     <div className={className}>
       {icons?.map(({ key, href, icon: Icon }) => (
-        <Link href={href} key={key} className={'cursor-pointer'}>
-          <Icon className={'w- h-6'} />
-        </Link>
+        <motion.div
+          key={key}
+          whileHover={{
+            rotateZ: [0, -10, 10, 0],
+            transition: { duration: 0.5 },
+          }}
+        >
+          <Link href={href} className={'cursor-pointer'}>
+            <Icon className={'w- h-6'} />
+          </Link>
+        </motion.div>
       ))}
     </div>
   )
