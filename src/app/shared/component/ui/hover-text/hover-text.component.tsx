@@ -55,12 +55,7 @@ const secondTextVariant = {
 const HoveredTextComponent: FC<Readonly<IHoveredTextProps>> = ({ children, className }) => {
   //return
   return (
-    <motion.button
-      initial='initial'
-      whileHover='hover'
-      animate='animate'
-      className={'cursor-pointer'}
-    >
+    <motion.div initial='initial' whileHover='hover' animate='animate' className={'cursor-pointer'}>
       <div className='relative overflow-hidden'>
         <motion.p variants={firstTextVariant} className={className}>
           {children}
@@ -73,7 +68,7 @@ const HoveredTextComponent: FC<Readonly<IHoveredTextProps>> = ({ children, class
           {children}
         </motion.p>
       </div>
-    </motion.button>
+    </motion.div>
   )
 }
 

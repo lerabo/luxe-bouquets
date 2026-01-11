@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion'
 
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 
+import { useLayoutContext } from '@/app/shared/context'
 import {
   IconFacebook,
   IconInstagram,
@@ -13,25 +14,49 @@ import {
 } from '@/app/shared/icons'
 import { Link } from '@/core/lib/locale/i18n'
 
+import { ISettingsFields } from '../../../../../../../../@types/generated/contentful'
+
 //interface
 interface ISocialsProps {
   className?: string
 }
 
 const icons = [
-  { key: 'instagram', href: 'https://instagram.com', icon: IconInstagram },
-  { key: 'pinterest', href: 'https://pinterest.com', icon: IconPinterest },
-  { key: 'facebook', href: 'https://facebook.com', icon: IconFacebook },
-  { key: 'twitter', href: 'https://twitter.com', icon: IconTwitter },
-  { key: 'telegram', href: 'https://telegram.com', icon: IconTelegram },
+  { key: 'instagram', icon: IconInstagram },
+  { key: 'pinterest', icon: IconPinterest },
+  { key: 'facebook', icon: IconFacebook },
+  { key: 'twitter', icon: IconTwitter },
+  { key: 'telegram', icon: IconTelegram },
 ]
 
 //component
 const SocialsComponent: FC<Readonly<ISocialsProps>> = ({ className }) => {
+  const { data } = useLayoutContext()
+
+  const filtered = useMemo(
+    () =>
+      icons
+        ?.filter((el) =>
+          data?.settings?.find((item) => (item?.fields as ISettingsFields)?.key === el?.key),
+        )
+        ?.map((el) => {
+          return {
+            ...el,
+            href:
+              (
+                data?.settings?.find(
+                  (setting) => el?.key === (setting?.fields as ISettingsFields)?.key,
+                )?.fields as ISettingsFields
+              )?.value ?? '',
+          }
+        }),
+    [data],
+  )
+
   //return
   return (
     <div className={className}>
-      {icons?.map(({ key, href, icon: Icon }) => (
+      {filtered?.map(({ key, href, icon: Icon }) => (
         <motion.div
           key={key}
           whileHover={{

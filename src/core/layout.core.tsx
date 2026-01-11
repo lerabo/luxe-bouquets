@@ -1,13 +1,14 @@
 import { Metadata, Viewport } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 
+import { createClient } from 'contentful'
+
 import { FC, ReactNode } from 'react'
 import { Toaster } from 'react-hot-toast'
 
 import '@/core/style/globals.css'
 
 import { primaryFont } from '@/core/config'
-import { ApolloClientProvider } from '@/core/lib/apollo'
 import { HeroUIProvider } from '@/core/lib/heroui'
 import { ProgressBarProvider } from '@/core/lib/progress-bar'
 
@@ -16,6 +17,11 @@ interface ILayoutCoreProps {
   children: ReactNode
   locale: string
 }
+
+export const client = createClient({
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID ?? '',
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN ?? '',
+})
 
 // component
 const LayoutCore: FC<Readonly<ILayoutCoreProps>> = async (props) => {
@@ -26,9 +32,7 @@ const LayoutCore: FC<Readonly<ILayoutCoreProps>> = async (props) => {
       <html lang={locale} suppressHydrationWarning>
         <body className={`${primaryFont.className} scroll-smooth`}>
           <HeroUIProvider locale={locale}>
-            <ApolloClientProvider>
-              <ProgressBarProvider>{children}</ProgressBarProvider>
-            </ApolloClientProvider>
+            <ProgressBarProvider>{children}</ProgressBarProvider>
           </HeroUIProvider>
           <Toaster position='bottom-right' />
         </body>

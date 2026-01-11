@@ -3,6 +3,68 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IFooterFields {
+  /** label */
+  label: string;
+
+  /** pages */
+  pages?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
+}
+
+export interface IFooter extends Entry<IFooterFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "footer";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IPageFields {
+  /** title */
+  title: string;
+
+  /** slug */
+  slug: string;
+
+  /** meta title */
+  metaTitle?: Document | undefined;
+
+  /** meta description */
+  metaDescription?: Document | undefined;
+
+  /** image */
+  image?: Asset | undefined;
+
+  /** text page */
+  textPage?: boolean | undefined;
+}
+
+export interface IPage extends Entry<IPageFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "page";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IProductFields {
   /** title */
   title: string;
@@ -37,10 +99,100 @@ export interface IProduct extends Entry<IProductFields> {
   };
 }
 
-export type CONTENT_TYPE = "product";
+export interface ISettingsFields {
+  /** label */
+  label?: string | undefined;
 
-export type IEntry = IProduct;
+  /** key */
+  key?: string | undefined;
 
-export type LOCALE_CODE = "en-US";
+  /** value */
+  value?: string | undefined;
+}
+
+export interface ISettings extends Entry<ISettingsFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "settings";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ISidebarFields {
+  /** title */
+  title?: string | undefined;
+
+  /** pages */
+  pages?: Entry<{ [fieldId: string]: unknown }>[] | undefined;
+}
+
+export interface ISidebar extends Entry<ISidebarFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "sidebar";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ITextInSiteFields {
+  /** text */
+  text?: string | undefined;
+
+  /** key */
+  key?: string | undefined;
+}
+
+export interface ITextInSite extends Entry<ITextInSiteFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "textInSite";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export type CONTENT_TYPE =
+  | "footer"
+  | "page"
+  | "product"
+  | "settings"
+  | "sidebar"
+  | "textInSite";
+
+export type IEntry =
+  | IFooter
+  | IPage
+  | IProduct
+  | ISettings
+  | ISidebar
+  | ITextInSite;
+
+export type LOCALE_CODE = "en-US" | "uk";
 
 export type CONTENTFUL_DEFAULT_LOCALE_CODE = "en-US";

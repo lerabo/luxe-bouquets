@@ -13,8 +13,6 @@
     "codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
-    "@apollo/client": "^3.13.8",
-    "@apollo/experimental-nextjs-app-support": "^0.12.2",
     "@bprogress/next": "^3.2.12",
     "@heroui/number-input": "^2.0.20",
     "@heroui/react": "2.8.4",
@@ -39,10 +37,6 @@
     "zustand": "^5.0.5"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^5.0.6",
-    "@graphql-codegen/typescript": "^4.1.6",
-    "@graphql-codegen/typescript-operations": "^4.6.1",
-    "@graphql-codegen/typescript-react-apollo": "^4.3.3",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
