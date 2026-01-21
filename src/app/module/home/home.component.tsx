@@ -1,6 +1,6 @@
 import { FC, Fragment } from 'react'
 
-import { BannerComponent } from '@/app/module/home/elements'
+import { AboutUsComponent, BannerComponent } from '@/app/module/home/elements'
 
 //interface
 interface IHomeProps {}
@@ -11,6 +11,8 @@ const HomeComponent: FC<Readonly<IHomeProps>> = () => {
   return (
     <Fragment>
       <BannerComponent />
+
+      <AboutUsComponent />
     </Fragment>
   )
 }
