@@ -1,6 +1,6 @@
 import { FC, Fragment } from 'react'
 
-import { AboutUsComponent, BannerComponent } from '@/app/module/home/elements'
+import { AboutUsComponent, BannerComponent, WhyChooseComponent } from '@/app/module/home/elements'
 
 //interface
 interface IHomeProps {}
@@ -13,6 +13,8 @@ const HomeComponent: FC<Readonly<IHomeProps>> = () => {
       <BannerComponent />
 
       <AboutUsComponent />
+
+      <WhyChooseComponent />
     </Fragment>
   )
 }
